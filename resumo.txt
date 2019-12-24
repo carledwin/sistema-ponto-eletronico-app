@@ -5,6 +5,8 @@ sudo npm install -g @angular/cli ou @angular/cli@1.6.4
 ver a versão do angular
 ng --version
 
+sudo npm install rxjs-compat --save
+
 criando um novo projeto
 ng new sistema-ponto-eletronico-app
 
