@@ -64,3 +64,8 @@ AppRoutingModule é um singleton, uma unica classe para toda a aplicação crian
 http://localhost:4200
 http://localhost:4200/login
 
+
+criar um service para acessar a api
+ng g service autenticacao/login/services/login
+** services sempre precisam ser registrados nos .modules par serem disponibilizados, injetados
+e carregados, nesse caso será registrado no login.modules.ts, como ele é um service precisa ser declarado como um provider
