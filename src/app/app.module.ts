@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material';
+
+//import { LoginModule } from './autenticacao/login/login.module';
+import { LoginModule, LoginRoutingModule } from './autenticacao';
+import { AppRoutingModule } from './app-routing.module'; // o modulo root deve sempre ser o ultimo
 
 @NgModule({
   declarations: [
@@ -13,10 +16,13 @@ import {MatButtonModule} from '@angular/material';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    LoginModule,
+    LoginRoutingModule,
+    AppRoutingModule
   ],
+  // o modulo root deve sempre ser o ultimo, se importar um modulo filho apos um modulo pai, ele não sera reconhecido pela aplicacao
   providers: [],
   bootstrap: [AppComponent]
 })

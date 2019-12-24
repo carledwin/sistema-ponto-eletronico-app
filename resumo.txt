@@ -38,3 +38,29 @@ importando o comando abaixo para o styles.css
 
 importando fonts do google-api no header do index.html
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+criando o modulo de autenticação
+ng g module autenticacao/login
+
+ao criar um novo modulo, importar e declarar no app.module.ts
+
+criar um arquivo index.ts para importar em niveis os modulos
+
+criar o componente na raiz da aplicacao
+
+criando um arquivo de rotas
+ng g class app-routing.module
+
+criar um arquivo de rota para o login
+ng g class autenticacao/login/login-routing.module
+
+criar um component como porta de entrada para o sistema
+ng g class autenticacao/login/components/logar.component
+ng g component autenticacao/login/components/login
+
+
+AppRoutingModule é um singleton, uma unica classe para toda a aplicação criando uma arvore para as outras rotas
+
+http://localhost:4200
+http://localhost:4200/login
+
