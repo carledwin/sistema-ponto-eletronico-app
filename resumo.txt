@@ -31,7 +31,7 @@ https://material.angular.io/components/button/api
 configurar hammerjs no main.ts para que o Material funcione
 
 configurar um theme css para que o Material possa funcionar adequadamente
-importando o comando abaixo para o styles.css 
+importando o comando abaixo para o styles.css
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 
 importando fonts do google-api no header do index.html
