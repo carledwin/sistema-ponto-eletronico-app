@@ -1,0 +1,38 @@
+
+instalar o angular
+sudo npm install -g @angular/cli ou @angular/cli@1.6.4
+
+ver a versão do angular
+ng --version
+
+criando um novo projeto
+ng new sistema-ponto-eletronico-app
+
+inicializando o projeto
+cd sistema-ponto-eletronico-app
+ng serve --aot
+
+acessando o projeto
+http://localhost:4200/
+
+Angular Material
+https://material.angular.io/
+https://material.angular.io/guide/getting-started
+https://material.angular.io/components/categories
+
+Na raiz do projeto
+instalar dependencias
+sudo npm install --save @angular/material @angular/cdk @angular/animations hammerjs @angular/flex-layout
+
+
+configurar o app.module.ts para acrescentar o component de button
+https://material.angular.io/components/button/api
+
+configurar hammerjs no main.ts para que o Material funcione
+
+configurar um theme css para que o Material possa funcionar adequadamente
+importando o comando abaixo para o styles.css 
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+importando fonts do google-api no header do index.html
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
