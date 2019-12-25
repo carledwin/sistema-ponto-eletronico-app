@@ -69,3 +69,48 @@ criar um service para acessar a api
 ng g service autenticacao/login/services/login
 ** services sempre precisam ser registrados nos .modules par serem disponibilizados, injetados
 e carregados, nesse caso será registrado no login.modules.ts, como ele é um service precisa ser declarado como um provider
+
+criando modulo de cadastro-pj
+ng g module autenticacao/cadastro-pj
+
+criando um componente para o modulo cadastro-pj
+ng g component autenticacao/cadastro-pj/components/cadastrar-pj
+criar index.ts na raiz do cadastrar-pj para exportar o component e do components para exportar o cadastrar-pj e no cadastro-pj para exportar o modulo e no index da autenticacao incluir o diretorio cadastro-pj de no modulo principal(app.module.ts) acrescentar o CadastroPjModule 
+
+
+criar um component que será um wrapper para o component de cadastropj
+dentro de cadastro-pj/components/ cadastro-pj.component.ts
+
+declarar o cadastro-pj.component.ts dentro do index.ts do components
+
+criar o arquivo de rota especifico para este component/modulo, dentro do diretorio raiz do cadastro-pj
+cadastro-pj.routing.module.ts
+
+declarar o routing module no arquivo index.ts do diretorio em que ele foi criado, import também esse diretório no app.module.ts no mesmo recurso de /autenticacao
+
+
+criar modulo shared na raiz do projeto
+ng g module shared
+
+importar o SharedModule para o CadastroPjModule
+
+criar diretiva para mask
+ng g directive shared/directives/mask
+
+para que essa diretiva possa ser utilizada, em shared.module.ts acrescente em @NgModule({...., exports: [MaskDirective]})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
