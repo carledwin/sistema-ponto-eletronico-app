@@ -10,7 +10,9 @@ import {MatButtonModule} from '@angular/material';
 import { LoginModule,
         LoginRoutingModule,
         CadastroPjModule,
-      CadastroPjRoutingModule } from './autenticacao';
+        CadastroPjRoutingModule,
+        CadastroPfModule,
+        CadastroPfRoutingModule } from './autenticacao';
 import { AppRoutingModule } from './app-routing.module'; // o modulo root deve sempre ser o ultimo
 
 @NgModule({
@@ -25,6 +27,8 @@ import { AppRoutingModule } from './app-routing.module'; // o modulo root deve s
     LoginRoutingModule,
     CadastroPjModule,
     CadastroPjRoutingModule,
+    CadastroPfModule,
+    CadastroPfRoutingModule,
     AppRoutingModule
   ],
   // o modulo root deve sempre ser o ultimo, se importar um modulo filho apos um modulo pai, ele não sera reconhecido pela aplicacao

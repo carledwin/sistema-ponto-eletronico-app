@@ -105,7 +105,8 @@ ng g service autenticacao/cadastro-pj/services/cadastro-pj
 registrar esse service no cadastroPjModule
 
 
-
+******* sempre registrar o service no modulo principal do modulo
+ex. cadastro-pf.module.ts
 
 
 
