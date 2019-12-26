@@ -50,16 +50,16 @@ export class LoginComponent implements OnInit {
         console.log(JSON.stringify(usuarioData));
 
         if(usuarioData['role'] == 'ROLE_ADMIN'){
-
-          alert('Deve redirecionar para a pagina de ADMIN');
-          //this.router.navigate(['/admin']);
+          console.log('Deve redirecionar para a pagina de ADMIN');
+          this.router.navigate(['/admin']);
         } else{
-          alert('Deve redirecionar para a pagina de FUNCIONARIO');
-          //this.router.navigate(['/funcionario']);
+          console.log('Deve redirecionar para a pagina de FUNCIONARIO');
+          this.router.navigate(['/funcionario']);
         }
       },
       err => {
-        console.log(JSON.stringify(err));
+
+        console.error(JSON.stringify(err));
 
         let msg: string = 'Tente novamente em instantes';
 
@@ -71,9 +71,8 @@ export class LoginComponent implements OnInit {
       }
     );
 
-    alert(JSON.stringify(login));
-
-    alert('Email: ' + login.email + ', Senha: '  + login.password);
+    console.error(JSON.stringify(login));
+    console.error('Email: ' + login.email + ', Senha: '  + login.password);
   }
 
 }
