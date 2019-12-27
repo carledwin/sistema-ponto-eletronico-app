@@ -71,8 +71,8 @@ export class LoginComponent implements OnInit {
       }
     );
 
-    console.error(JSON.stringify(login));
-    console.error('Email: ' + login.email + ', Senha: '  + login.password);
+    console.log(JSON.stringify(login));
+    console.log('Email: ' + login.email + ', Senha: '  + login.password);
   }
 
 }
