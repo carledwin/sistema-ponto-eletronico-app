@@ -14,7 +14,12 @@ export class HttpUtilService {
       const contentType = 'application/json';
       const accept = 'application/json';
 
-      const httpHeaders: HttpHeaders = new HttpHeaders({'Accept':'application/json', 'TesteHeader':'Fulano','Content-Type': contentType, 'Authorization': bearerToken});
+      let httpHeaders: HttpHeaders = new HttpHeaders();
+
+      httpHeaders = httpHeaders.set('Accept', accept);
+      httpHeaders = httpHeaders.set('Batata', 'Frita');
+      httpHeaders = httpHeaders.set('Content-Type', contentType);
+      httpHeaders = httpHeaders.set('Authorization', bearerToken);
 
       console.info('TesteHeader: ' + httpHeaders.get('TesteHeader'));
       console.info('Authorization: ' + httpHeaders.get('Authorization'));
@@ -24,7 +29,7 @@ export class HttpUtilService {
       return { headers: httpHeaders };
     }
 
-  return null;
+    return null;
 
   }
 

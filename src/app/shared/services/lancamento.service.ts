@@ -11,15 +11,14 @@ export class LancamentoService {
 
   private readonly LANCAMENTOS_BASE_PATH: string = 'lancamentos';
   private readonly ULTIMO_LANCAMENTO_PATH: string = '/funcionarios/{funcionarioId}/ultimo';
+  private readonly LANCAMENTOS_TODOS_BY_FUNCIONARIO_ID_PATH: string = '/funcionarios/{funcionarioId}/todos';
   // private readonly LANCAMENTOS_BY_FUNCIONARIO_ID_PATH: string = '/funcionarios/{funcionarioId}';
-  // private readonly LANCAMENTOS_TODOS_BY_FUNCIONARIO_ID_PATH: string = '/funcionarios/{funcionarioId}/todos';
 
   constructor(private httpClient: HttpClient,
               private httpUtilService: HttpUtilService) { }
 
 
   buscarUltimoTipoLancado(): Observable<any>{
-
 
     const token: string = localStorage['token'];
     console.log('Token >>>> ' + token);
@@ -37,9 +36,6 @@ export class LancamentoService {
     console.log('Url >>>>> ' + url);
 
     return this.httpClient.get(url, this.httpUtilService.headers());
-
-
-    //return this.httpClient.get(url, {headers: headers});
   }
 
   cadastrar(lancamento: Lancamento): Observable<any>{
@@ -47,5 +43,15 @@ export class LancamentoService {
     return this.httpClient.post(env.baseUrl + this.LANCAMENTOS_BASE_PATH,
       lancamento,
       this.httpUtilService.headers());
+  }
+
+  listarTodos(): Observable<any> {
+
+    return this.httpClient.get(
+      env.baseUrl +
+      this.LANCAMENTOS_BASE_PATH +
+      this.LANCAMENTOS_TODOS_BY_FUNCIONARIO_ID_PATH.replace('{funcionarioId}', this.httpUtilService.obterIdUsuario()),
+      this.httpUtilService.headers()
+    );
   }
 }
