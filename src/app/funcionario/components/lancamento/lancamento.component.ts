@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 import {Tipo,
         LancamentoService,
         Lancamento,

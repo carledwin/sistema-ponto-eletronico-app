@@ -1,34 +1,28 @@
-import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
 import {RouterModule} from '@angular/router';
-
 import {FlexLayoutModule} from '@angular/flex-layout';
-
-import { LancamentoService,
-          HttpUtilService } from './../shared/services';
-
-import { ListagemComponent,
-  LancamentoComponent,
-          FuncionarioComponent } from './components';
 import { MatInputModule,
-          MatButtonModule,
-          MatListModule,
-          MatTooltipModule,
-          MatIconModule,
-          MatSnackBarModule,
-          MatTableModule,
-          MatPaginatorModule,
-          MatSortModule,
-          MatCardModule } from '@angular/material';
+      MatButtonModule,
+      MatListModule,
+      MatTooltipModule,
+      MatIconModule,
+      MatSnackBarModule,
+      MatTableModule,
+      MatPaginatorModule,
+      MatSortModule,
+      MatCardModule,
+      MatPaginatorIntl} from '@angular/material';
+import { LancamentoService,
+          HttpUtilService} from '../shared';
+import { PtBrMatPaginatorIntl } from './../shared/pt-br-mat-paginator-intl';
+import { SharedModule } from './../shared/shared.module';
+import { ListagemComponent,
+          LancamentoComponent,
+          FuncionarioComponent } from './components';
 
 @NgModule({
-  declarations: [
-    ListagemComponent,
-    LancamentoComponent,
-    FuncionarioComponent
-  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -43,11 +37,19 @@ import { MatInputModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatCardModule
+    MatCardModule,
+    SharedModule
+  ],
+  declarations: [
+    ListagemComponent,
+    LancamentoComponent,
+    FuncionarioComponent
   ],
   providers: [
     HttpUtilService,
-    LancamentoService
+    LancamentoService,
+    {provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}
   ]
 })
+
 export class FuncionarioModule { }

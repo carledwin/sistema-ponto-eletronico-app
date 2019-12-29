@@ -1,27 +1,27 @@
 <a mat-button color="warn" routerLink="/funcionario">
   Adicionar Lancamento
 </a>
-<!--
-<mat-table [dataSource]="dataSource">
+
+<mat-table [dataSource]="dataSource" matSort>
 
   <mat-header-row *matHeaderRowDef="colunas"></mat-header-row>
   <mat-row *matRowDef="let row; columns: colunas;"></mat-row>
 
   <ng-container matColumnDef="data">
-    <mat-header-cell *matHeaderCellDef>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>
       Data
     </mat-header-cell>
     <mat-cell *matCellDef="let lancamento">
-      {{lancamento.data}}
+      {{lancamento.data | data}}
     </mat-cell>
   </ng-container>
 
   <ng-container>
-    <mat-header-cell matColumnDef="tipo">
+    <mat-header-cell matColumnDef="tipo" mat-sort-header>
       Tipo
     </mat-header-cell>
     <mat-cell *matCellDef="let lancamento">
-      {{lancamento.tipo}}
+      {{lancamento.tipo | tipo}}
     </mat-cell>
   </ng-container>
 
@@ -33,4 +33,10 @@
       {{lancamento.localizacao}}
     </mat-cell>
   </ng-container>
-</mat-table> -->
+</mat-table>
+
+<mat-paginator
+  #matPaginator
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 15]">
+</mat-paginator>

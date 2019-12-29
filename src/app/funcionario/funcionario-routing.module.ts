@@ -1,7 +1,5 @@
 import {NgModule} from '@angular/core';
-
 import {RouterModule, Routes} from '@angular/router';
-
 import {FuncionarioComponent,
         LancamentoComponent,
         ListagemComponent} from './components';

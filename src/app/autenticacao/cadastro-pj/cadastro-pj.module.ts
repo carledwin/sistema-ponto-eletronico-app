@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { HttpClientModule } from '@angular/common/http';
-
-// import { CadastrarPjComponent } from './components/cadastrar-pj/cadastrar-pj.component';
 import { MatInputModule,
   MatButtonModule,
   MatListModule,
@@ -15,11 +11,10 @@ import { MatInputModule,
   MatIconModule,
   MatSnackBarModule } from '@angular/material';
 
-import {CadastroPjComponent, CadastrarPjComponent } from './components';
-
-import { CadastroPjService } from './services';
-
+import {CadastroPjComponent,
+        CadastrarPjComponent } from './components';
 import { SharedModule } from '../../shared/shared.module';
+import { CadastroPjService } from './services';
 
 @NgModule({
   imports: [

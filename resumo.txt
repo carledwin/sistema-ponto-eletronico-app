@@ -89,6 +89,7 @@ cadastro-pj.routing.module.ts
 declarar o routing module no arquivo index.ts do diretorio em que ele foi criado, import também esse diretório no app.module.ts no mesmo recurso de /autenticacao
 
 
+
 criar modulo shared na raiz do projeto
 ng g module shared
 
@@ -110,6 +111,21 @@ ex. cadastro-pf.module.ts
 
 instalar lib no projeto angular
 npm install moment --save
+
+criar pipe
+ng g pipe shared/pipes/tipo
+
+criando o modulo de admin
+ng g module admin
+
+criando o component de listagem para o admin
+ng g component admin/components/listagem
+
+ng g component admin/components/cadastro
+
+ng g component admin/components/atualizacao
+
+
 
 
 

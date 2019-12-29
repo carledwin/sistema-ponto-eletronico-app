@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {DataSource} from '@angular/cdk/collections';
-import {MatTableDataSource,
-        MatSnackBar,
-        PageEvent,
-        MatPaginator,
-        Sort,
-        MatSort} from '@angular/material';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import {MatTableDataSource,
+  MatSnackBar,
+  PageEvent,
+  MatPaginator,
+  Sort,
+  MatSort} from '@angular/material';
+import {DataSource} from '@angular/cdk/collections';
 import {LancamentoService, Lancamento} from '../../../shared';
 
 @Component({
@@ -23,6 +23,9 @@ export class ListagemComponent implements OnInit {
   constructor(private lancamentoService: LancamentoService,
               private matSnackBar: MatSnackBar) { }
 
+  @ViewChild (MatSort, {static: true}) matSort: MatSort;
+  @ViewChild (MatPaginator, {static: true}) matPaginator: MatPaginator;
+
   ngOnInit() {
 
     console.log('Iniciando chamada com log: ');
@@ -31,9 +34,12 @@ export class ListagemComponent implements OnInit {
     .subscribe(
       data => {
 
-        console.log('%%%%%%% data: ' + JSON.stringify(data));
-        const lancamentos = data['data'] as Lancamento[];
-        this.dataSource = new MatTableDataSource<Lancamento>(lancamentos);
+       console.log('%%%%%%% data JSON: ' + JSON.stringify(data));
+
+       const lancamentos = data['data'] as Lancamento[];
+       this.dataSource = new MatTableDataSource<Lancamento>(lancamentos);
+       this.dataSource.sort = this.matSort;
+       this.dataSource.paginator = this.matPaginator;
       },
       err => {
         const msg: string = "Erro ao tentar obter lancamentos";

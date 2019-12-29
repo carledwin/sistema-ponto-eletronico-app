@@ -1,17 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MascaraDirective } from './directives/mascara.directive';
-
+import { TipoPipe, DataPipe, PtBrMatPaginatorIntl } from './';
 
 @NgModule({
-  declarations: [
-    MascaraDirective
-  ],
   imports: [
     CommonModule
   ],
+  declarations: [
+    MascaraDirective,
+    TipoPipe,
+    DataPipe
+  ],
   exports: [
-    MascaraDirective
+    MascaraDirective,
+    TipoPipe,
+    DataPipe
+  ],
+  providers:[
+    PtBrMatPaginatorIntl
   ]
 })
 export class SharedModule { }

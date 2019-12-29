@@ -25,5 +25,4 @@ export const CadastroPjRoutes: Routes = [
 })
 
 export class CadastroPjRoutingModule{
-
 }

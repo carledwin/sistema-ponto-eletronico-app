@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 import { environment as env } from './../../../../environments/environment';
 import { CadastroPj } from '../';
-
-
-// @Injectable({
-//   providedIn: 'root'
-// })
 
 @Injectable()
 export class CadastroPjService {

@@ -1,12 +1,9 @@
-import {
-  Directive,
-  HostListener,
-  Input,
-  ElementRef
-} from '@angular/core';
-import {
-  NG_VALUE_ACCESSOR, ControlValueAccessor
-} from '@angular/forms';
+import { Directive,
+          HostListener,
+          Input,
+          ElementRef } from '@angular/core';
+import { NG_VALUE_ACCESSOR,
+          ControlValueAccessor } from '@angular/forms';
 
 @Directive({
   selector: '[mascara]',
@@ -89,7 +86,3 @@ export class MascaraDirective implements ControlValueAccessor {
   }
 
 }
-
-
-
-

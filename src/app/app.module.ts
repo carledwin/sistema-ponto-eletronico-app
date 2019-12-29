@@ -1,29 +1,23 @@
-import { FuncionarioRoutingModule } from './funcionario/funcionario-routing.module';
-import { FuncionarioModule } from './funcionario/funcionario.module';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-
+import { BrowserModule } from '@angular/platform-browser';
+import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 import {MatToolbarModule,
         MatIconModule} from '@angular/material';
-
-import {FlexLayoutModule} from '@angular/flex-layout';
-
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module'; // o modulo root deve sempre ser o ultimo
+import { AdminModule,
+          AdminRoutingModule } from './admin';
+import { FuncionarioRoutingModule,
+          FuncionarioModule } from './funcionario';
 import { LoginModule,
         LoginRoutingModule,
         CadastroPjModule,
         CadastroPjRoutingModule,
         CadastroPfModule,
         CadastroPfRoutingModule } from './autenticacao';
-import { AppRoutingModule } from './app-routing.module'; // o modulo root deve sempre ser o ultimo
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -36,11 +30,15 @@ import { AppRoutingModule } from './app-routing.module'; // o modulo root deve s
     CadastroPjRoutingModule,
     CadastroPfModule,
     CadastroPfRoutingModule,
+    AdminModule,
+    AdminRoutingModule,
     FuncionarioModule,
     FuncionarioRoutingModule,
     AppRoutingModule
   ],
-  // o modulo root deve sempre ser o ultimo, se importar um modulo filho apos um modulo pai, ele não sera reconhecido pela aplicacao
+  declarations: [
+    AppComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

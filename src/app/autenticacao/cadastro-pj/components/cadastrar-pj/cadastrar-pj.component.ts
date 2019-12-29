@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
-import {Router} from '@angular/router';
 import {CadastroPj} from '../../models';
-import { CpfValidator, CnpjValidator } from './../../../../shared/validators';
-import { CadastroPjService } from './../../services/cadastro-pj.service';
+import { CpfValidator,
+          CnpjValidator } from './../../../../shared/validators';
+import { CadastroPjService } from './../../services';
 
 @Component({
   selector: 'app-cadastrar-pj',

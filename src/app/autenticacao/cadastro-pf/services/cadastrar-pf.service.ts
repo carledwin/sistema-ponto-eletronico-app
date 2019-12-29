@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
-import {environment as env} from '../../../../environments/environment';
+import {Observable} from 'rxjs/Observable';
 import {CadastroPf} from '../models';
+import {environment as env} from '../../../../environments/environment';
 
 @Injectable()
 export class CadastrarPfService {
