@@ -9,7 +9,7 @@ import {HttpUtilService} from './http-util.service';
 export class FuncionarioService {
 
   private readonly FUNCIONARIOS_BASE_PATH = 'funcionarios';
-  private readonly EMPRESA_BY_ID = 'empresa/{empresaId}';
+  private readonly EMPRESA_BY_ID = '/empresa/{empresaId}';
 
   constructor(private httpClient: HttpClient,
               private httpUtilService: HttpUtilService) { }

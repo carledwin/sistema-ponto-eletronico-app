@@ -50,7 +50,10 @@ import {ListagemComponent,
     MatNativeDateModule,
     MatDialogModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    ReactiveFormsModule,
+    FormsModule,
+    SharedModule
   ],
   declarations: [
     ListagemComponent,

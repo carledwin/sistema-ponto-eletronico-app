@@ -91,7 +91,16 @@ export class ListagemComponent implements OnInit {
   }
 
   exibirLancamentos(){
-    this.funcionarioId = '81';
+
+    if(this.matSelect.selected){
+      this.funcionarioId = this.matSelect.selected['value'];
+    }else if(this.funcId) {
+      this.funcionarioId = this.funcId;
+    }else{
+      return;
+    }
+
+    sessionStorage['funcionarioId'] = this.funcionarioId;
 
     this.lancamentoService.listarLancamentosPorFuncionario(this.funcionarioId, this.pagina, this.ordem, this.direcao)
     .subscribe(
