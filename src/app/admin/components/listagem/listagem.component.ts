@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Observable} from 'rxjs/Observable';
 import {
         MatSelect,
         MatTableDataSource,
@@ -14,6 +14,7 @@ import {
 
 import {
   LancamentoService,
+  FuncionarioService,
   Lancamento,
   Funcionario,
   Tipo,
@@ -32,11 +33,16 @@ export class ListagemComponent implements OnInit {
   funcionarioId: string;
   totalLancamentos: number;
 
+  funcionarios: Funcionario[];
+  @ViewChild(MatSelect, {static: true}) matSelect: MatSelect;
+  form: FormGroup;
+
   private pagina: number;
   private ordem: string;
   private direcao: string;
 
   constructor(private lancamentoService: LancamentoService,
+              private funcionarioService: FuncionarioService,
               private httpUtilService: HttpUtilService,
               private matSnackBar: MatSnackBar,
               private formBuilder: FormBuilder) { }
@@ -44,7 +50,39 @@ export class ListagemComponent implements OnInit {
   ngOnInit() {
     this.pagina = 0;
     this.ordemPadrao();
-    this.exibirLancamentos();
+    this.obterFuncionarios();
+    this.gerarForm();
+  }
+
+  gerarForm() {
+    this.form = this.formBuilder.group({
+      funcs: ['', []]
+    });
+  }
+
+  get funcId(): string {
+    return sessionStorage['funcionarioId'] || false;
+  }
+
+  obterFuncionarios() {
+
+    return this.funcionarioService.listarFuncionariosPorEmpresa()
+          .subscribe(
+            data => {
+              const usuarioId: string = this.httpUtilService.obterIdUsuario();
+              this.funcionarios = (data.data  as Funcionario[])
+                                    .filter(func => func.id != usuarioId);
+
+              if(this.funcId){
+                this.form.get('funcs').setValue(parseInt(this.funcId, 10));
+                this.exibirLancamentos();
+              }
+            },
+            err => {
+              const msg: string = 'Erro obtendo funcionários';
+              this.matSnackBar.open(msg, "Erro", {duration: 500});
+            }
+          );
   }
 
   ordemPadrao(){

@@ -8,7 +8,9 @@ import {MatTableDataSource,
   Sort,
   MatSort} from '@angular/material';
 import {DataSource} from '@angular/cdk/collections';
-import {LancamentoService, Lancamento} from '../../../shared';
+import {LancamentoService,
+        FuncionarioService,
+        Lancamento} from '../../../shared';
 
 @Component({
   selector: 'app-listagem',
@@ -21,6 +23,7 @@ export class ListagemComponent implements OnInit {
   colunas: string[] = ['data', 'tipo', 'localizacao'];
 
   constructor(private lancamentoService: LancamentoService,
+              private funcionarioService: FuncionarioService,
               private matSnackBar: MatSnackBar) { }
 
   @ViewChild (MatSort, {static: true}) matSort: MatSort;

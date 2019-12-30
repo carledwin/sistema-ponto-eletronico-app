@@ -24,6 +24,7 @@ import {SharedModule} from '../shared/shared.module';
 
 import {HttpUtilService,
         LancamentoService,
+        FuncionarioService,
         PtBrMatPaginatorIntl} from '../shared';
 
 import {ListagemComponent,
@@ -59,6 +60,7 @@ import {ListagemComponent,
   ],
   providers: [
     LancamentoService,
+    FuncionarioService,
     HttpUtilService,
     MatPaginatorIntl,
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
