@@ -24,7 +24,7 @@ export class ListagemComponent implements OnInit {
               private matSnackBar: MatSnackBar) { }
 
   @ViewChild (MatSort, {static: true}) matSort: MatSort;
-  @ViewChild (MatPaginator, {static: true}) matPaginator: MatPaginator;
+  @ViewChild (MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
 
@@ -36,10 +36,10 @@ export class ListagemComponent implements OnInit {
 
        console.log('%%%%%%% data JSON: ' + JSON.stringify(data));
 
-       const lancamentos = data['data'] as Lancamento[];
+       const lancamentos = data['data'].content as Lancamento[];
        this.dataSource = new MatTableDataSource<Lancamento>(lancamentos);
        this.dataSource.sort = this.matSort;
-       this.dataSource.paginator = this.matPaginator;
+       this.dataSource.paginator = this.paginator;
       },
       err => {
         const msg: string = "Erro ao tentar obter lancamentos";
