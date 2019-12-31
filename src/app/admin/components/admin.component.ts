@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 @Component({
   template: `
-  <h2 fxLayoutAlign="center">Controle de Ponto - Admin</h2>
+  <h2 fxLayoutAlign="center">Controle De Ponto - Administrador</h2>
   <router-outlet></router-outlet>
   `
 })

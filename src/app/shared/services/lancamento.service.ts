@@ -62,4 +62,14 @@ export class LancamentoService {
     const url = env.baseUrl + this.LANCAMENTOS_BASE_PATH + '/' + lancamentoId;
     return this.httpClient.delete(url , this.httpUtilService.headers());
   }
+
+   buscarPorId(lancamentoId: string): Observable<any> {
+     const url = env.baseUrl + this.LANCAMENTOS_BASE_PATH + '/' + lancamentoId;
+     return this.httpClient.get(url, this.httpUtilService.headers());
+   }
+
+   atualizar(lancamento: Lancamento): Observable<any> {
+     const url = env.baseUrl + this.LANCAMENTOS_BASE_PATH + '/' + lancamento.id;
+     return this.httpClient.put(url, lancamento, this.httpUtilService.headers());
+   }
 }

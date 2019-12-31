@@ -7,7 +7,7 @@ import * as moment from 'moment';
 export class DataPipe implements PipeTransform {
 
   transform(data: string, args?: any): string {
-    return moment(data).format('DD/MM/YYY HH:mm:ss');
+    return moment(data).format('DD/MMM/YYYY HH:mm:ss');
   }
 
 }
