@@ -57,4 +57,9 @@ export class LancamentoService {
 
     return this.httpClient.get(url + params, this.httpUtilService.headers());
   }
+
+  remover(lancamentoId: string): Observable<any> {
+    const url = env.baseUrl + this.LANCAMENTOS_BASE_PATH + '/' + lancamentoId;
+    return this.httpClient.delete(url , this.httpUtilService.headers());
+  }
 }

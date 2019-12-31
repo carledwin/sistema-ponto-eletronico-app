@@ -30,7 +30,8 @@ import {HttpUtilService,
 import {ListagemComponent,
         CadastroComponent,
         AtualizacaoComponent,
-        AdminComponent} from './components';
+        AdminComponent,
+        ConfirmarDialog, } from './components';
 
 @NgModule({
   imports: [
@@ -59,7 +60,8 @@ import {ListagemComponent,
     ListagemComponent,
     CadastroComponent,
     AtualizacaoComponent,
-    AdminComponent
+    AdminComponent,
+    ConfirmarDialog,
   ],
   providers: [
     LancamentoService,
@@ -68,6 +70,9 @@ import {ListagemComponent,
     MatPaginatorIntl,
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
     {provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}
+  ],
+  entryComponents: [
+    ConfirmarDialog
   ]
 })
 export class AdminModule { }

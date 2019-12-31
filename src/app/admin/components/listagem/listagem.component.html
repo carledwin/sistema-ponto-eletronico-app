@@ -21,8 +21,7 @@ Adicionar lançamento
       Data
     </mat-header-cell>
     <mat-cell *matCellDef="let lancamento">
-      <!-- {{lancamento.data | data}} -->
-      {{lancamento.data}}
+      {{lancamento.data | data}}
     </mat-cell>
   </ng-container>
   <ng-container matColumnDef="tipo">
@@ -30,8 +29,7 @@ Adicionar lançamento
       Tipo
     </mat-header-cell>
     <mat-cell *matCellDef="let lancamento">
-      <!-- {{lancamento.tipo | tipo}} -->
-      {{lancamento.tipo}}
+      {{lancamento.tipo | tipo}}
     </mat-cell>
   </ng-container>
   <ng-container matColumnDef="localizacao">
@@ -51,7 +49,7 @@ Adicionar lançamento
       <a routerLink="{{'/admin/atualizacao/' + lancamento.id}}">
         <mat-icon matTooltip="Editar lançamento">create</mat-icon>
       </a>
-      <a (click)="removerLancamento(lancamento.id)" style="cursor: ponter">
+      <a (click)="removerDialog(lancamento.id)" style="cursor: ponter">
         <mat-icon matTooltip="Remover lançamento">clear</mat-icon>
       </a>
     </mat-cell>

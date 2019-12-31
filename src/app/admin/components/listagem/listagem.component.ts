@@ -20,6 +20,7 @@ import {
   Tipo,
   HttpUtilService
 } from '../../../shared';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-listagem',
@@ -42,10 +43,11 @@ export class ListagemComponent implements OnInit {
   private direcao: string;
 
   constructor(private lancamentoService: LancamentoService,
-              private funcionarioService: FuncionarioService,
               private httpUtilService: HttpUtilService,
               private matSnackBar: MatSnackBar,
-              private formBuilder: FormBuilder) { }
+              private funcionarioService: FuncionarioService,
+              private formBuilder: FormBuilder,
+              private matDialog: MatDialog) { }
 
   ngOnInit() {
     this.pagina = 0;
@@ -116,8 +118,33 @@ export class ListagemComponent implements OnInit {
     );
   }
 
+  removerDialog(lancamentoId: string){
+    const dialog = this.matDialog.open(ConfirmarDialog, {});
+    dialog.afterClosed().subscribe(
+      remover => {
+        if(remover){
+          this.removerLancamento(lancamentoId);
+        }
+      });
+  }
+
   removerLancamento(lancamentoId: string){
-    alert(lancamentoId);
+
+    this.lancamentoService.remover(lancamentoId)
+          .subscribe(
+            data => {
+              const msg: string = 'Lançamento removido com sucesso';
+              this.matSnackBar.open(msg, "Sucesso", {duration: 500});
+              this.exibirLancamentos();
+            },
+            err => {
+              let msg: string = 'Tente novamente em instantes';
+              if(err.status == 400){
+                msg = err.error.errors.join(' ');
+              }
+              this.matSnackBar.open(msg, "Erro", {duration: 5000});
+            }
+          );
   }
 
   paginar(pageEvent: PageEvent){
@@ -136,4 +163,22 @@ export class ListagemComponent implements OnInit {
 
     this.exibirLancamentos();
   }
+}
+
+@Component({
+  selector: 'confirmar-dialog',
+  template: `
+    <h1 mat-dialog-title>Deseja realmente remover o lancamento?</h1>
+    <div mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="false" tabindex="-1">
+        Não
+      </button>
+      <button mat-button [mat-dialog-close]="true" tabindex="2">
+        Sim
+      </button>
+    </div>
+  `
+})
+export class ConfirmarDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any){}
 }
