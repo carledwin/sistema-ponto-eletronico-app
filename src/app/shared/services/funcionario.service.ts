@@ -16,7 +16,7 @@ export class FuncionarioService {
 
   listarFuncionariosPorEmpresa(): Observable<any>{
 
-    const url = this.FUNCIONARIOS_BASE_PATH + this.FUNCIONARIOS_BASE_PATH.replace('{empresaId}', this.httpUtilService.obterIdEmpresa());
+    const url = env.baseUrl + this.FUNCIONARIOS_BASE_PATH + this.EMPRESA_BY_ID.replace('{empresaId}', this.httpUtilService.obterIdEmpresa());
 
     return this.httpClient.get(url, this.httpUtilService.headers());
   }
