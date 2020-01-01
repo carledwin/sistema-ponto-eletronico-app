@@ -3,29 +3,29 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatInputModule,
-        MatButtonModule,
-        MatListModule,
-        MatTooltipModule,
-        MatIconModule,
-        MatSnackBarModule,
-        MatTableModule,
-        MatSelectModule,
-        MatRadioModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MAT_DATE_LOCALE,
-        MatDialogModule,
-        MatPaginatorModule,
-        MatPaginatorIntl,
-        MatSortModule} from '@angular/material';
+  MatButtonModule,
+  MatListModule,
+  MatTooltipModule,
+  MatIconModule,
+  MatSnackBarModule,
+  MatTableModule,
+  MatSelectModule,
+  MatRadioModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MAT_DATE_LOCALE,
+  MatDialogModule,
+  MatPaginatorModule,
+  MatPaginatorIntl,
+  MatSortModule} from '@angular/material';
 import {ReactiveFormsModule,
-        FormsModule} from '@angular/forms';
+    FormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
 
 import {HttpUtilService,
-        LancamentoService,
-        FuncionarioService,
-        PtBrMatPaginatorIntl} from '../shared';
+  LancamentoService,
+  FuncionarioService,
+      PtBrMatPaginatorIntl} from '../shared';
 
 import {ListagemComponent,
         CadastroComponent,
@@ -33,8 +33,10 @@ import {ListagemComponent,
         AdminComponent,
         ConfirmarDialog, } from './components';
 
+import { AdminGuard } from './services/admin-guard.service';
+
 @NgModule({
-  imports: [
+          imports: [
     CommonModule,
     RouterModule,
     FlexLayoutModule,
@@ -68,6 +70,7 @@ import {ListagemComponent,
     FuncionarioService,
     HttpUtilService,
     MatPaginatorIntl,
+    AdminGuard,
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
     {provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}
   ],
